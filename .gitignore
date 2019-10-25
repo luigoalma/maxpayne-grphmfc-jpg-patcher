@@ -1,0 +1,15 @@
+#everything.
+*
+*/
+
+# except these
+!.gitignore
+!patch.py
+!jpg_jumper.asm
+!jpgloader.c
+!Makefile
+!in
+in/*
+!in/.gitkeep
+!Readme.md
+!LICENSE.txt
