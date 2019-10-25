@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # First off, yes, this script is a complete mess
 # Idea here was just to patch something of static nature, not expecting the DLL to change
