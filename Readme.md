@@ -21,6 +21,11 @@ Maybe someone will want to use this to determine what image is _supposed_ to be 
 
 For other people without the problem, this may come just as a possible little boost of speed.
 
+# Releases
+
+I'll be providing releases time to time. At least if I do a significant change for it.
+Just check `releases`.
+
 # Applying
 
 Have the game's `grphmfc.dll` in the `in` folder.\
