@@ -79,12 +79,16 @@ __declspec(dllexport) int __thiscall JPGLoader(struct G_Image* This, u8* buffer,
 		return 1;
 	}
 	if(tjDecompress2(tjInstance, buffer, size, (u8*)image, width, 0, height, TJPF_BGRX, TJFLAG_ACCURATEDCT) < 0) {
-		//tjDestroy(tjInstance);
-		//ErrorMesssage(1, tjGetErrorStr2(tjInstance));
+		#ifndef AMDR3GENPATCHER
+		tjDestroy(tjInstance);
+		ErrorMesssage(1, tjGetErrorStr2(tjInstance));
 		Debug(buffer, size, count);
-		//free(image);
-		//return 1;
+		free(image);
+		return 1;
+		#else
+		Debug(buffer, size, count);
 		memset(image, 0xFF, width*height*4); // fake it, set it all to FF, aka white
+		#endif
 	}
 	tjDestroy(tjInstance);
 	This->image = image;

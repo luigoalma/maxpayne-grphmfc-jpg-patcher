@@ -30,7 +30,7 @@ Just check `releases`.
 
 Have the game's `grphmfc.dll` in the `in` folder.\
 This needs [NASM](https://www.nasm.us), [Mingw-w64](http://mingw-w64.org)'s gcc, [Python](https://www.python.org) 3, [libjpeg-turbo](https://github.com/libjpeg-turbo/libjpeg-turbo) on lib and include paths of mingw-w64, and make.\
-Just run `make` if all set.\
+Just run `make` for AMD error suppressed patched version, or if just want the libjpeg-turbo itself and no error suppression, `make all_noamdpatch`.\
 If need just the dll patching and not the extra dll, run `make grphmfc_patch` or `python3 patch.py`.
 
 # License & Distribution
