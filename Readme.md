@@ -1,11 +1,14 @@
 # Max Payne's grphmfc jpg patcher
 
+**This patch itself is no longer necessary, I gave another fix for the real issue, check [here](https://steamcommunity.com/app/12140/discussions/0/1640919737479023003/?ctp=2#c1638675549000200866) or [alternatively here](https://www.reddit.com/r/Amd/comments/dr5f0b/a_uniquely_ryzen_3000_problem_max_payne_2001/f6o1m0p)**
+
 This is mainly a "silencer" and a passthrough for the AMD Ryzen 3rd gen people.\
 Game has been crashing at jpg loads.
 
 The game is getting jpg data passed to the jpg loader function corrupted time to time.\
-Unknown why exactly, but while so, this patch adds a jumper to a new dll with loader code.\
-This new code will suppress the error, only if it manages to get header decompressed.\
+This is caused by older CPU capability detection code failing to detect CPU and capabilities in `rlmfc.dll`, it fails at the lack of MMX that it can't detect correctly.
+This patch adds a jumper to a new dll with loader code.\
+This new code will suppress the errors, only if it manages to get header decompressed.\
 If header comes corrupted too, nothing will be done, unless we fake width and height as well.\
 But only data seems to cause issue, headers seem fine.\
 Corruption happens before it gets to the loader.\
@@ -13,11 +16,7 @@ So in the event of a bad jpg with an okay header, will get instead replaced with
 This means some missing textures, but the game SHOULD run.\
 If a header gets corrupted, then we run to an issue.
 
-Don't know to what extent the jpgs are failing within the game on these CPUs, and only had one friend to shortly test it out.
-
 This is not very polished on the applying scripts, and not really intended to be, just good to apply it and make dll ready to the let game run with new code.
-
-Maybe someone will want to use this to determine what image is _supposed_ to be loaded, and load it some other way here.
 
 For other people without the problem, this may come just as a possible little boost of speed.
 
